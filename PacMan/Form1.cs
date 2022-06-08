@@ -16,5 +16,30 @@ namespace PacMan
         {
             InitializeComponent();
         }
+
+        private void keydown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void keyup(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void mainGameTimer(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resetGame()
+        {
+
+        }
+
+        private void gameOver(string message)
+        {
+        
+        }
     }
 }
