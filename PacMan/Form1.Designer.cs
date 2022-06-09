@@ -196,7 +196,7 @@
             // redGhost
             // 
             this.redGhost.Image = global::PacMan.Properties.Resources.red_guy;
-            this.redGhost.Location = new System.Drawing.Point(327, 409);
+            this.redGhost.Location = new System.Drawing.Point(253, 70);
             this.redGhost.Name = "redGhost";
             this.redGhost.Size = new System.Drawing.Size(45, 60);
             this.redGhost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -207,7 +207,7 @@
             // orangeGhost
             // 
             this.orangeGhost.Image = global::PacMan.Properties.Resources.yellow_guy;
-            this.orangeGhost.Location = new System.Drawing.Point(537, 197);
+            this.orangeGhost.Location = new System.Drawing.Point(394, 378);
             this.orangeGhost.Name = "orangeGhost";
             this.orangeGhost.Size = new System.Drawing.Size(45, 60);
             this.orangeGhost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,7 +218,7 @@
             // pinkGhost
             // 
             this.pinkGhost.Image = global::PacMan.Properties.Resources.pink_guy;
-            this.pinkGhost.Location = new System.Drawing.Point(283, 89);
+            this.pinkGhost.Location = new System.Drawing.Point(511, 258);
             this.pinkGhost.Name = "pinkGhost";
             this.pinkGhost.Size = new System.Drawing.Size(45, 60);
             this.pinkGhost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,7 +338,7 @@
             // pictureBox18
             // 
             this.pictureBox18.Image = global::PacMan.Properties.Resources.coin;
-            this.pictureBox18.Location = new System.Drawing.Point(383, 373);
+            this.pictureBox18.Location = new System.Drawing.Point(383, 342);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(25, 25);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -382,7 +382,7 @@
             // pictureBox22
             // 
             this.pictureBox22.Image = global::PacMan.Properties.Resources.coin;
-            this.pictureBox22.Location = new System.Drawing.Point(252, 89);
+            this.pictureBox22.Location = new System.Drawing.Point(234, 139);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(25, 25);
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -533,6 +533,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(682, 553);
+            this.Controls.Add(this.orangeGhost);
+            this.Controls.Add(this.pinkGhost);
+            this.Controls.Add(this.redGhost);
+            this.Controls.Add(this.pacman);
             this.Controls.Add(this.pictureBox34);
             this.Controls.Add(this.pictureBox33);
             this.Controls.Add(this.pictureBox32);
@@ -547,9 +551,6 @@
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox22);
             this.Controls.Add(this.pictureBox21);
-            this.Controls.Add(this.orangeGhost);
-            this.Controls.Add(this.redGhost);
-            this.Controls.Add(this.pinkGhost);
             this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.pictureBox17);
@@ -561,7 +562,6 @@
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pacman);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
