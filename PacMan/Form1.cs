@@ -78,12 +78,12 @@ namespace PacMan
                 pacman.Left += playerSpeed;
                 pacman.Image = Properties.Resources.right;
             }
-            if(godown == true)
+            if(godown == true && pacman.Top < 360)
             {
                 pacman.Top += playerSpeed;
                 pacman.Image = Properties.Resources.down;
             }
-            if(goup == true)
+            if(goup == true && pacman.Top > 45)
             {
                 pacman.Top -= playerSpeed;
                 pacman.Image = Properties.Resources.Up;
@@ -110,7 +110,29 @@ namespace PacMan
                             x.Visible = false;
                         }
                     }
+                    if((string)x.Tag == "wall")
+                    {
+                        if(pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            
+                        }
+                    }
+                    if((string)x.Tag == "ghost")
+                    {
+                        if(pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            //game over
+                        }
+                    }    
                 }
+            }
+
+            redGhost.Left += redGhostSpeed;
+            redGhost.Top += redGhostSpeed;
+            
+            if(score == 30)
+            {
+                //game over
             }
 
         }
