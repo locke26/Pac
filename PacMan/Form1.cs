@@ -89,6 +89,30 @@ namespace PacMan
                 pacman.Image = Properties.Resources.Up;
             }
 
+            if(pacman.Left < -30)
+            {
+                pacman.Left = 500;
+            }
+            if(pacman.Left > 500)
+            {
+                pacman.Left = -30;
+            }
+
+            foreach(Control x in this.Controls)
+            {
+                if(x is PictureBox)
+                {
+                    if((string)x.Tag == "coin" && x.Visible == true)
+                    {
+                        if(pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            score += 1;
+                            x.Visible = false;
+                        }
+                    }
+                }
+            }
+
         }
 
         private void resetGame()
