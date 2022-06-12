@@ -15,7 +15,7 @@ namespace PacMan
 
         bool goup, godown, goleft, goright, isGameOver;
 
-        int score, playerSpeed, redGhostSpeed, yellowGhostSpeed, pinkGhostX, pinkGhostY;
+        int score, playerSpeed, GhostSpeed;
         
         public Form1()
         {
@@ -97,8 +97,16 @@ namespace PacMan
             {
                 pacman.Left = -30;
             }
+            if (redGhost.Left < -30)
+            {
+                redGhost.Left = 500;
+            }
+            if (redGhost.Left > 500)
+            {
+                redGhost.Left = -30;
+            }
 
-            foreach(Control x in this.Controls)
+            foreach (Control x in this.Controls)
             {
                 if(x is PictureBox)
                 {
@@ -127,8 +135,14 @@ namespace PacMan
                 }
             }
 
-            redGhost.Left += redGhostSpeed;
-            redGhost.Top += redGhostSpeed;
+            redGhost.Left += GhostSpeed;
+            redGhost.Top += GhostSpeed;
+
+            if(redGhost.Top > 360)
+            {
+                redGhost.Left -= GhostSpeed;
+                redGhost.Top -= GhostSpeed;
+            }
             
             if(score == 30)
             {
@@ -142,10 +156,7 @@ namespace PacMan
             scoreLabel.Text = "Score: 0";
             score = 0;
             
-            redGhostSpeed = 5;
-            yellowGhostSpeed = 5;
-            pinkGhostX = 5;
-            pinkGhostY = 5;
+            GhostSpeed = 5;
             playerSpeed = 5;
 
             isGameOver = false;
