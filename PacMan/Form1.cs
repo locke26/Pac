@@ -13,10 +13,15 @@ namespace PacMan
     public partial class Form1 : Form
     {
 
-        bool goup, godown, goleft, goright, isGameOver;
+        bool goup, godown, goleft, goright;
+       
+        int score, playerSpeed, redGhostSpeed, pinkGhostSpeed, orangeGhostSpeed;
 
-        int score, playerSpeed, GhostSpeed;
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            resetGame();
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +29,7 @@ namespace PacMan
             resetGame();
         }
 
+        // key down for movement
         private void keydown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Up)
@@ -44,6 +50,7 @@ namespace PacMan
             }
         }
 
+        // key up for movement
         private void keyup(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
@@ -64,6 +71,7 @@ namespace PacMan
             }
         }
 
+        // game timer
         private void mainGameTimer(object sender, EventArgs e)
         {
             scoreLabel.Text = "Score: " + score;
@@ -89,6 +97,7 @@ namespace PacMan
                 pacman.Image = Properties.Resources.Up;
             }
 
+            // teleport to other side of the screen
             if(pacman.Left < -30)
             {
                 pacman.Left = 500;
@@ -105,11 +114,27 @@ namespace PacMan
             {
                 redGhost.Left = -30;
             }
+            if (orangeGhost.Left < -30)
+            {
+                orangeGhost.Left = 500;
+            }
+            if (orangeGhost.Left > 500)
+            {
+                orangeGhost.Left = -30;
+            }
+            if (pinkGhost.Left < -30)
+            {
+                pinkGhost.Left = 500;
+            }
+            if (pinkGhost.Left > 500)
+            {
+                pinkGhost.Left = -30;
+            }
 
             foreach (Control x in this.Controls)
             {
                 if(x is PictureBox)
-                {
+                {    // check if player is touching a coin
                     if((string)x.Tag == "coin" && x.Visible == true)
                     {
                         if(pacman.Bounds.IntersectsWith(x.Bounds))
@@ -125,53 +150,106 @@ namespace PacMan
                             
                         }
                     }
+                    
+                    // if player touches a ghost run game over
                     if((string)x.Tag == "ghost")
                     {
                         if(pacman.Bounds.IntersectsWith(x.Bounds))
                         {
-                            //game over
+                            
                         }
                     }    
                 }
             }
 
-            redGhost.Left += GhostSpeed;
-            redGhost.Top += GhostSpeed;
 
-            if(redGhost.Top > 360)
+            // red ghost movement
+            redGhost.Left -= redGhostSpeed;
+            redGhost.Top -= redGhostSpeed;
+
+            if(redGhost.Bounds.IntersectsWith(pictureBox7.Bounds))
             {
-                redGhost.Left -= GhostSpeed;
-                redGhost.Top -= GhostSpeed;
+                redGhostSpeed = -redGhostSpeed;
             }
-            
-            if(score == 30)
+
+            if (redGhost.Bounds.IntersectsWith(pictureBox8.Bounds))
             {
-                //game over
+                redGhostSpeed = -redGhostSpeed;
+            }
+
+            // pink ghost movement
+            pinkGhost.Left += pinkGhostSpeed;
+            pinkGhost.Top -= pinkGhostSpeed;
+
+            if (pinkGhost.Bounds.IntersectsWith(pictureBox7.Bounds))
+            {
+                pinkGhostSpeed = -pinkGhostSpeed;
+            }
+
+            if (pinkGhost.Bounds.IntersectsWith(pictureBox8.Bounds))
+            {
+                pinkGhostSpeed = -pinkGhostSpeed;
+            }
+
+            // orange ghost movement
+            orangeGhost.Left += orangeGhostSpeed;
+            orangeGhost.Top += orangeGhostSpeed;
+
+            if (orangeGhost.Bounds.IntersectsWith(pictureBox7.Bounds))
+            {
+                orangeGhostSpeed = -orangeGhostSpeed;
+            }
+
+            if (orangeGhost.Bounds.IntersectsWith(pictureBox8.Bounds))
+            {
+                orangeGhostSpeed = -orangeGhostSpeed;
+            }
+
+            //victory screen
+            if (score == 30)
+            {
+                winLabel.Visible = true;
+                playagainButton.Visible = true;
+                
+                foreach (Control x in this.Controls)
+                {
+                    if(x is PictureBox)
+                    {
+                        x.Visible = false;
+                    }
+                }
             }
 
         }
 
         private void resetGame()
         {
+            
+            
+            winLabel.Visible = false;
+            playagainButton.Visible = false;
+
             scoreLabel.Text = "Score: 0";
             score = 0;
             
-            GhostSpeed = 5;
+            redGhostSpeed = 5;
+            pinkGhostSpeed = 5;
+            orangeGhostSpeed = 5;
             playerSpeed = 5;
-
-            isGameOver = false;
 
             pacman.Left = 60;
             pacman.Top = 90;
 
-            redGhost.Left = 230;
+            redGhost.Left = 150;
             redGhost.Top = 70;
 
-            orangeGhost.Left = 260;
+            orangeGhost.Left = 100;
             orangeGhost.Top = 325;
 
-            pinkGhost.Left = 400;
+            pinkGhost.Left = 300;
             pinkGhost.Top = 220;
+
+            
 
             foreach(Control x in this.Controls)
             {

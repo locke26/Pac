@@ -67,6 +67,8 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox35 = new System.Windows.Forms.PictureBox();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
+            this.winLabel = new System.Windows.Forms.Label();
+            this.playagainButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orangeGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pinkGhost)).BeginInit();
@@ -108,7 +110,7 @@
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.BackColor = System.Drawing.Color.Blue;
+            this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.ForeColor = System.Drawing.Color.Transparent;
             this.scoreLabel.Location = new System.Drawing.Point(12, 519);
@@ -153,7 +155,7 @@
             // pacman
             // 
             this.pacman.Image = global::PacMan.Properties.Resources.right;
-            this.pacman.Location = new System.Drawing.Point(84, 89);
+            this.pacman.Location = new System.Drawing.Point(17, 144);
             this.pacman.Name = "pacman";
             this.pacman.Size = new System.Drawing.Size(55, 55);
             this.pacman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -515,12 +517,39 @@
             this.pictureBox36.TabStop = false;
             this.pictureBox36.Tag = "coin";
             // 
+            // winLabel
+            // 
+            this.winLabel.AutoSize = true;
+            this.winLabel.BackColor = System.Drawing.Color.Transparent;
+            this.winLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.winLabel.Location = new System.Drawing.Point(285, 258);
+            this.winLabel.Name = "winLabel";
+            this.winLabel.Size = new System.Drawing.Size(87, 25);
+            this.winLabel.TabIndex = 33;
+            this.winLabel.Text = "You win!";
+            // 
+            // playagainButton
+            // 
+            this.playagainButton.BackColor = System.Drawing.Color.Blue;
+            this.playagainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playagainButton.ForeColor = System.Drawing.Color.Transparent;
+            this.playagainButton.Location = new System.Drawing.Point(290, 306);
+            this.playagainButton.Name = "playagainButton";
+            this.playagainButton.Size = new System.Drawing.Size(81, 42);
+            this.playagainButton.TabIndex = 34;
+            this.playagainButton.Text = "Play Again";
+            this.playagainButton.UseVisualStyleBackColor = false;
+            this.playagainButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(682, 553);
+            this.Controls.Add(this.playagainButton);
+            this.Controls.Add(this.winLabel);
             this.Controls.Add(this.pictureBox36);
             this.Controls.Add(this.pictureBox35);
             this.Controls.Add(this.pictureBox6);
@@ -643,6 +672,8 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox35;
         private System.Windows.Forms.PictureBox pictureBox36;
+        private System.Windows.Forms.Label winLabel;
+        private System.Windows.Forms.Button playagainButton;
     }
 }
 
