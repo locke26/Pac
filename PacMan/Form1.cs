@@ -92,11 +92,12 @@ namespace PacMan
         // game timer
         private void mainGameTimer(object sender, EventArgs e)
         {
-            //increase score
+            // update score
             scoreLabel.Text = "Score: " + score;
+            // update lives
             livesLabel.Text = "Lives: " + lives;
 
-            //movement
+            // movement for pacman
             if(goleft == true)
             {
                 pacman.Left -= playerSpeed;
@@ -273,7 +274,7 @@ namespace PacMan
                 lives -= 1;
             }
             
-            //victory screen
+            // victory screen
             if (score == 30)
             {
                 winLabel.Visible = true;
@@ -293,7 +294,7 @@ namespace PacMan
                 
             }
 
-            //restart game if lives = 0
+            // restart game if lives = 0
             if (lives == 0)
             {
                 winLabel.Visible = true;
@@ -316,7 +317,7 @@ namespace PacMan
         
         
         
-        //restart game
+        // restart game
         private void resetGame()
         {
 
