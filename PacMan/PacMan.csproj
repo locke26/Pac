@@ -84,28 +84,28 @@
     <None Include="Resources\coin.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\down.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\left.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pink_guy.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red_guy.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Up.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\yellow_guy.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pixel-pac-man.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
