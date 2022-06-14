@@ -597,8 +597,11 @@
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox20);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pac-Man (kind of)";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyup);
