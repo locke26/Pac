@@ -15,12 +15,8 @@ namespace PacMan
 
         bool goup, godown, goleft, goright;
        
-        int score, playerSpeed, redGhostSpeed, pinkGhostSpeed, orangeGhostSpeed;
+        int score, playerSpeed, redGhostSpeed, pinkGhostSpeed, orangeGhostSpeed, lives;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            resetGame();
-        }
 
         public Form1()
         {
@@ -74,8 +70,11 @@ namespace PacMan
         // game timer
         private void mainGameTimer(object sender, EventArgs e)
         {
+            //increase score
             scoreLabel.Text = "Score: " + score;
+            livesLabel.Text = "Lives: " + lives;
 
+            //movement
             if(goleft == true)
             {
                 pacman.Left -= playerSpeed;
@@ -205,11 +204,65 @@ namespace PacMan
                 orangeGhostSpeed = -orangeGhostSpeed;
             }
 
+           // if player touches a ghost remove a life
+            
+            if(pacman.Bounds.IntersectsWith(orangeGhost.Bounds))
+            {
+                pacman.Left = 60;
+                pacman.Top = 90;
+
+                redGhost.Left = 190;
+                redGhost.Top = 70;
+
+                orangeGhost.Left = 100;
+                orangeGhost.Top = 325;
+
+                pinkGhost.Left = 300;
+                pinkGhost.Top = 220;
+
+                lives -= 1;
+            }
+            
+            if(pacman.Bounds.IntersectsWith(pinkGhost.Bounds))
+            {
+                pacman.Left = 60;
+                pacman.Top = 90;
+
+                redGhost.Left = 190;
+                redGhost.Top = 70;
+
+                orangeGhost.Left = 100;
+                orangeGhost.Top = 325;
+
+                pinkGhost.Left = 300;
+                pinkGhost.Top = 220;
+
+                lives -= 1;
+            }
+            
+            
+            if(pacman.Bounds.IntersectsWith(redGhost.Bounds))
+            {
+                pacman.Left = 60;
+                pacman.Top = 90;
+
+                redGhost.Left = 190;
+                redGhost.Top = 70;
+
+                orangeGhost.Left = 100;
+                orangeGhost.Top = 325;
+
+                pinkGhost.Left = 300;
+                pinkGhost.Top = 220;
+
+                lives -= 1;
+            }
+            
             //victory screen
             if (score == 30)
             {
                 winLabel.Visible = true;
-                playagainButton.Visible = true;
+                winLabel.Text = "You win!";
                 
                 foreach (Control x in this.Controls)
                 {
@@ -218,29 +271,40 @@ namespace PacMan
                         x.Visible = false;
                     }
                 }
+
+                gameTimer.Stop();
+                
+            }
+
+            //restart game if lives = 0
+            if (lives == 0)
+            {
+                resetGame();
             }
 
         }
-
+        //restart game
         private void resetGame()
         {
+
             
-            
+
             winLabel.Visible = false;
-            playagainButton.Visible = false;
 
             scoreLabel.Text = "Score: 0";
             score = 0;
-            
+
+            lives = 3;
+
             redGhostSpeed = 5;
             pinkGhostSpeed = 5;
             orangeGhostSpeed = 5;
-            playerSpeed = 5;
+            playerSpeed = 8;
 
             pacman.Left = 60;
             pacman.Top = 90;
 
-            redGhost.Left = 150;
+            redGhost.Left = 190;
             redGhost.Top = 70;
 
             orangeGhost.Left = 100;
@@ -264,9 +328,5 @@ namespace PacMan
 
         }
 
-        private void gameOver(string message) 
-        {
-        
-        }
     }
 }
