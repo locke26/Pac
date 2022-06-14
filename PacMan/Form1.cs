@@ -21,8 +21,20 @@ namespace PacMan
         public Form1()
         {
             InitializeComponent();
-            
-            resetGame();
+
+            winLabel.Visible = true;
+            winLabel.Text = "Welcome to Pac-Man! Space to play Esc to exit";
+
+
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox)
+                {
+                    x.Visible = false;
+                }
+            }
+
         }
 
         // key down for movement
@@ -44,6 +56,7 @@ namespace PacMan
             {
                 goright = true;
             }
+            
         }
 
         // key up for movement
@@ -65,6 +78,15 @@ namespace PacMan
             {
                 goright = false;
             }
+            if (e.KeyCode == Keys.Space)
+            {
+                resetGame();
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+            
         }
 
         // game timer
@@ -150,14 +172,7 @@ namespace PacMan
                         }
                     }
                     
-                    // if player touches a ghost run game over
-                    if((string)x.Tag == "ghost")
-                    {
-                        if(pacman.Bounds.IntersectsWith(x.Bounds))
-                        {
-                            
-                        }
-                    }    
+                    
                 }
             }
 
@@ -262,7 +277,9 @@ namespace PacMan
             if (score == 30)
             {
                 winLabel.Visible = true;
-                winLabel.Text = "You win!";
+                winLabel.Text = "You win! Space to restart Esc to exit";
+                pacmanImage.Visible = true;
+               
                 
                 foreach (Control x in this.Controls)
                 {
@@ -279,15 +296,31 @@ namespace PacMan
             //restart game if lives = 0
             if (lives == 0)
             {
-                resetGame();
+                winLabel.Visible = true;
+                winLabel.Text = "Game over! Space to restart Esc to exit";
+                pacmanImage.Visible = true;
+
+
+                foreach (Control x in this.Controls)
+                {
+                    if (x is PictureBox)
+                    {
+                        x.Visible = false;
+                    }
+                }
+
+                gameTimer.Stop();
             }
 
         }
+        
+        
+        
         //restart game
         private void resetGame()
         {
 
-            
+            pacmanImage.Visible = false;
 
             winLabel.Visible = false;
 

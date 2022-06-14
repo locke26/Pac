@@ -70,6 +70,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.livesLabel = new System.Windows.Forms.Label();
+            this.pacmanImage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.orangeGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pinkGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).BeginInit();
@@ -131,11 +132,11 @@
             this.winLabel.BackColor = System.Drawing.Color.Transparent;
             this.winLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.winLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.winLabel.Location = new System.Drawing.Point(285, 258);
+            this.winLabel.Location = new System.Drawing.Point(150, 280);
             this.winLabel.Name = "winLabel";
-            this.winLabel.Size = new System.Drawing.Size(87, 25);
+            this.winLabel.Size = new System.Drawing.Size(17, 25);
             this.winLabel.TabIndex = 33;
-            this.winLabel.Text = "You win!";
+            this.winLabel.Text = ".";
             // 
             // orangeGhost
             // 
@@ -542,12 +543,21 @@
             this.livesLabel.TabIndex = 34;
             this.livesLabel.Text = "Lives: 3";
             // 
+            // pacmanImage
+            // 
+            this.pacmanImage.Image = global::PacMan.Properties.Resources.right;
+            this.pacmanImage.Location = new System.Drawing.Point(231, 70);
+            this.pacmanImage.Name = "pacmanImage";
+            this.pacmanImage.Size = new System.Drawing.Size(226, 190);
+            this.pacmanImage.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(682, 553);
+            this.Controls.Add(this.pacmanImage);
             this.Controls.Add(this.winLabel);
             this.Controls.Add(this.orangeGhost);
             this.Controls.Add(this.pinkGhost);
@@ -589,7 +599,7 @@
             this.Controls.Add(this.pictureBox20);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Pac-Man";
+            this.Text = "Pac-Man (kind of)";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyup);
             ((System.ComponentModel.ISupportInitialize)(this.orangeGhost)).EndInit();
@@ -675,6 +685,7 @@
         private System.Windows.Forms.PictureBox pictureBox36;
         private System.Windows.Forms.Label winLabel;
         private System.Windows.Forms.Label livesLabel;
+        private System.Windows.Forms.Label pacmanImage;
     }
 }
 
