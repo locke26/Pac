@@ -589,7 +589,7 @@
             this.Controls.Add(this.pictureBox20);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "PacMan";
+            this.Text = "Pac-Man";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyup);
             ((System.ComponentModel.ISupportInitialize)(this.orangeGhost)).EndInit();
