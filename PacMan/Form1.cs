@@ -277,6 +277,7 @@ namespace PacMan
             // victory screen
             if (score == 30)
             {
+                scoreLabel.Text = "Score: 30";
                 winLabel.Visible = true;
                 winLabel.Text = "You win! Space to restart Esc to exit";
                 pacmanImage.Visible = true;
@@ -297,6 +298,7 @@ namespace PacMan
             // restart game if lives = 0
             if (lives == 0)
             {
+                livesLabel.Text = "Lives: 0";
                 winLabel.Visible = true;
                 winLabel.Text = "Game over! Space to restart Esc to exit";
                 pacmanImage.Visible = true;
