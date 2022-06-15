@@ -15,7 +15,7 @@ namespace PacMan
 
         bool goup, godown, goleft, goright;
        
-        int score, playerSpeed, redGhostSpeed, pinkGhostSpeed, orangeGhostSpeed, lives;
+        int score, playerSpeed, redGhostX, redGhostY, pinkGhostX, pinkGhostY, orangeGhostX, orangeGhostY, lives;
 
 
         public Form1()
@@ -78,13 +78,25 @@ namespace PacMan
             {
                 goright = false;
             }
-            if (e.KeyCode == Keys.Space)
+
+            //space to restart game
+            
+            if(e.KeyCode == Keys.Space)
             {
                 resetGame();
             }
+            
+           
+            // escape to exit game
             if (e.KeyCode == Keys.Escape)
             {
                 Application.Exit();
+            }
+            
+            // testing mode
+            if (e.KeyCode == Keys.T)
+            {
+                lives = 1000;
             }
             
         }
@@ -98,60 +110,28 @@ namespace PacMan
             livesLabel.Text = "Lives: " + lives;
 
             // movement for pacman
-            if(goleft == true)
+            if(goleft == true && pacman.Left > 0)
             {
                 pacman.Left -= playerSpeed;
                 pacman.Image = Properties.Resources.left;  
             }
-            if(goright == true)
+            if(goright == true && pacman.Left < 470)
             {
                 pacman.Left += playerSpeed;
                 pacman.Image = Properties.Resources.right;
             }
-            if(godown == true && pacman.Top < 360)
+            if(godown == true && pacman.Top < 400)
             {
                 pacman.Top += playerSpeed;
                 pacman.Image = Properties.Resources.down;
             }
-            if(goup == true && pacman.Top > 45)
+            if(goup == true && pacman.Top > 0)
             {
                 pacman.Top -= playerSpeed;
                 pacman.Image = Properties.Resources.Up;
             }
 
-            // teleport to other side of the screen
-            if(pacman.Left < -30)
-            {
-                pacman.Left = 500;
-            }
-            if(pacman.Left > 500)
-            {
-                pacman.Left = -30;
-            }
-            if (redGhost.Left < -30)
-            {
-                redGhost.Left = 500;
-            }
-            if (redGhost.Left > 500)
-            {
-                redGhost.Left = -30;
-            }
-            if (orangeGhost.Left < -30)
-            {
-                orangeGhost.Left = 500;
-            }
-            if (orangeGhost.Left > 500)
-            {
-                orangeGhost.Left = -30;
-            }
-            if (pinkGhost.Left < -30)
-            {
-                pinkGhost.Left = 500;
-            }
-            if (pinkGhost.Left > 500)
-            {
-                pinkGhost.Left = -30;
-            }
+           
 
             foreach (Control x in this.Controls)
             {
@@ -179,53 +159,54 @@ namespace PacMan
 
 
             // red ghost movement
-            redGhost.Left -= redGhostSpeed;
-            redGhost.Top -= redGhostSpeed;
+            redGhost.Left -= redGhostX;
+            redGhost.Top -= redGhostY;
 
-            if(redGhost.Bounds.IntersectsWith(pictureBox7.Bounds))
+            if (redGhost.Top < 0 || redGhost.Top + redGhost.Height > ClientSize.Height)
             {
-                redGhostSpeed = -redGhostSpeed;
+                
+                redGhostY= -redGhostY;
             }
-
-            if (redGhost.Bounds.IntersectsWith(pictureBox8.Bounds))
+            if (redGhost.Left < 0 || redGhost.Left + redGhost.Width > ClientSize.Width)
             {
-                redGhostSpeed = -redGhostSpeed;
+                redGhostX= -redGhostX;
             }
 
             // pink ghost movement
-            pinkGhost.Left += pinkGhostSpeed;
-            pinkGhost.Top -= pinkGhostSpeed;
+            pinkGhost.Left += pinkGhostX;
+            pinkGhost.Top -= pinkGhostY;
 
-            if (pinkGhost.Bounds.IntersectsWith(pictureBox7.Bounds))
+            if (pinkGhost.Top < 0 || pinkGhost.Top + pinkGhost.Height > ClientSize.Height)
             {
-                pinkGhostSpeed = -pinkGhostSpeed;
+
+                pinkGhostY = -pinkGhostY;
             }
-
-            if (pinkGhost.Bounds.IntersectsWith(pictureBox8.Bounds))
+            if (pinkGhost.Left < 0 || pinkGhost.Left + pinkGhost.Width > ClientSize.Width)
             {
-                pinkGhostSpeed = -pinkGhostSpeed;
+                pinkGhostX = -pinkGhostX;
             }
 
             // orange ghost movement
-            orangeGhost.Left += orangeGhostSpeed;
-            orangeGhost.Top += orangeGhostSpeed;
+            orangeGhost.Left += orangeGhostX;
+            orangeGhost.Top += orangeGhostY;
 
-            if (orangeGhost.Bounds.IntersectsWith(pictureBox7.Bounds))
+            if (orangeGhost.Top < 0 || orangeGhost.Top + orangeGhost.Height > ClientSize.Height)
             {
-                orangeGhostSpeed = -orangeGhostSpeed;
+
+                orangeGhostY = -orangeGhostY;
+            }
+            if (orangeGhost.Left < 0 || orangeGhost.Left + orangeGhost.Width > ClientSize.Width)
+            {
+                orangeGhostX = -orangeGhostX;
             }
 
-            if (orangeGhost.Bounds.IntersectsWith(pictureBox8.Bounds))
-            {
-                orangeGhostSpeed = -orangeGhostSpeed;
-            }
 
-           // if player touches a ghost remove a life
-            
-            if(pacman.Bounds.IntersectsWith(orangeGhost.Bounds))
+            // if player touches a ghost remove a life
+
+            if (pacman.Bounds.IntersectsWith(orangeGhost.Bounds))
             {
                 pacman.Left = 60;
-                pacman.Top = 90;
+                pacman.Top = 200;
 
                 redGhost.Left = 190;
                 redGhost.Top = 70;
@@ -242,7 +223,7 @@ namespace PacMan
             if(pacman.Bounds.IntersectsWith(pinkGhost.Bounds))
             {
                 pacman.Left = 60;
-                pacman.Top = 90;
+                pacman.Top = 200;
 
                 redGhost.Left = 190;
                 redGhost.Top = 70;
@@ -260,7 +241,7 @@ namespace PacMan
             if(pacman.Bounds.IntersectsWith(redGhost.Bounds))
             {
                 pacman.Left = 60;
-                pacman.Top = 90;
+                pacman.Top = 200;
 
                 redGhost.Left = 190;
                 redGhost.Top = 70;
@@ -332,13 +313,16 @@ namespace PacMan
 
             lives = 3;
 
-            redGhostSpeed = 5;
-            pinkGhostSpeed = 5;
-            orangeGhostSpeed = 5;
+            redGhostX = 5;
+            redGhostY = 5;
+            pinkGhostX = 5;
+            pinkGhostY = 5;
+            orangeGhostX = 5;
+            orangeGhostY = 5;
             playerSpeed = 8;
 
             pacman.Left = 60;
-            pacman.Top = 90;
+            pacman.Top = 200;
 
             redGhost.Left = 190;
             redGhost.Top = 70;
