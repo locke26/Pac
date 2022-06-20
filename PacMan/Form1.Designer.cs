@@ -576,7 +576,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pac-Man (kind of)";
+            this.Text = " ";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyup);
             ((System.ComponentModel.ISupportInitialize)(this.orangeGhost)).EndInit();

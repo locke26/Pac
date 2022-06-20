@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PacMan
 {
     public partial class Form1 : Form
     {
-
+        
+        
         bool goup, godown, goleft, goright;
-       
+
         int score, playerSpeed, redGhostX, redGhostY, pinkGhostX, pinkGhostY, orangeGhostX, orangeGhostY, lives;
 
+        
 
         public Form1()
         {
@@ -43,18 +46,26 @@ namespace PacMan
             if(e.KeyCode == Keys.Up)
             {
                 goup = true;
+                pacman.Image = Properties.Resources.Up;320
             }
             if(e.KeyCode == Keys.Down)
             {
                 godown = true;
+                pacman.Image = Properties.Resources.down;
             }
             if(e.KeyCode == Keys.Left)
             {
                 goleft = true;
+                pacman.Image = Properties.Resources.left;
+
+                
             }
             if(e.KeyCode == Keys.Right)
             {
                 goright = true;
+                pacman.Image = Properties.Resources.right;
+                
+               
             }
             
         }
@@ -77,7 +88,9 @@ namespace PacMan
             if (e.KeyCode == Keys.Right)
             {
                 goright = false;
+               
             }
+
 
             //space to restart game
             
@@ -98,8 +111,12 @@ namespace PacMan
             {
                 lives = 1000;
             }
+
+            
             
         }
+
+        
 
         // game timer
         private void mainGameTimer(object sender, EventArgs e)
@@ -113,22 +130,22 @@ namespace PacMan
             if(goleft == true && pacman.Left > 0)
             {
                 pacman.Left -= playerSpeed;
-                pacman.Image = Properties.Resources.left;  
-            }
+                            }
             if(goright == true && pacman.Left < 470)
             {
                 pacman.Left += playerSpeed;
-                pacman.Image = Properties.Resources.right;
+                
+                
             }
             if(godown == true && pacman.Top < 400)
             {
                 pacman.Top += playerSpeed;
-                pacman.Image = Properties.Resources.down;
+                
             }
             if(goup == true && pacman.Top > 0)
             {
                 pacman.Top -= playerSpeed;
-                pacman.Image = Properties.Resources.Up;
+            
             }
 
            
@@ -159,7 +176,7 @@ namespace PacMan
 
 
             // red ghost movement
-            redGhost.Left -= redGhostX;
+            redGhost.Left += redGhostX;
             redGhost.Top -= redGhostY;
 
             if (redGhost.Top < 0 || redGhost.Top + redGhost.Height > ClientSize.Height)
@@ -173,8 +190,8 @@ namespace PacMan
             }
 
             // pink ghost movement
-            pinkGhost.Left += pinkGhostX;
-            pinkGhost.Top -= pinkGhostY;
+            pinkGhost.Left -= pinkGhostX;
+            pinkGhost.Top += pinkGhostY;
 
             if (pinkGhost.Top < 0 || pinkGhost.Top + pinkGhost.Height > ClientSize.Height)
             {
@@ -208,7 +225,7 @@ namespace PacMan
                 pacman.Left = 60;
                 pacman.Top = 200;
 
-                redGhost.Left = 190;
+                redGhost.Left = 300;
                 redGhost.Top = 70;
 
                 orangeGhost.Left = 100;
@@ -225,7 +242,7 @@ namespace PacMan
                 pacman.Left = 60;
                 pacman.Top = 200;
 
-                redGhost.Left = 190;
+                redGhost.Left = 300;
                 redGhost.Top = 70;
 
                 orangeGhost.Left = 100;
@@ -243,7 +260,7 @@ namespace PacMan
                 pacman.Left = 60;
                 pacman.Top = 200;
 
-                redGhost.Left = 190;
+                redGhost.Left = 300;
                 redGhost.Top = 70;
 
                 orangeGhost.Left = 100;
@@ -319,12 +336,12 @@ namespace PacMan
             pinkGhostY = 5;
             orangeGhostX = 5;
             orangeGhostY = 5;
-            playerSpeed = 8;
+            playerSpeed = 5;
 
             pacman.Left = 60;
             pacman.Top = 200;
 
-            redGhost.Left = 190;
+            redGhost.Left = 300 ;
             redGhost.Top = 70;
 
             orangeGhost.Left = 100;
