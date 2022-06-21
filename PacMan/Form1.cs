@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
+
 namespace PacMan
 {
     public partial class Form1 : Form
@@ -19,8 +21,7 @@ namespace PacMan
 
         int score, playerSpeed, redGhostX, redGhostY, pinkGhostX, pinkGhostY, orangeGhostX, orangeGhostY, lives;
 
-        
-
+       
         public Form1()
         {
             InitializeComponent();
@@ -46,26 +47,22 @@ namespace PacMan
             if(e.KeyCode == Keys.Up)
             {
                 goup = true;
-                pacman.Image = Properties.Resources.Up;320
+                pacman.Image = Properties.Resources.up_image;               
             }
             if(e.KeyCode == Keys.Down)
             {
                 godown = true;
-                pacman.Image = Properties.Resources.down;
+                pacman.Image = Properties.Resources.down_image;
             }
             if(e.KeyCode == Keys.Left)
             {
                 goleft = true;
-                pacman.Image = Properties.Resources.left;
-
-                
+                pacman.Image = Properties.Resources.left_image;               
             }
             if(e.KeyCode == Keys.Right)
             {
                 goright = true;
-                pacman.Image = Properties.Resources.right;
-                
-               
+                pacman.Image = Properties.Resources.right_image;              
             }
             
         }

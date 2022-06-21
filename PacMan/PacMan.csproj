@@ -107,5 +107,17 @@
   <ItemGroup>
     <None Include="Resources\left.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frame_1_delay-0.1s.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frame_1_delay-0.1s %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up_image.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down_image.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
