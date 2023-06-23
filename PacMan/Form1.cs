@@ -31,6 +31,7 @@ namespace PacMan
 
 
 
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
